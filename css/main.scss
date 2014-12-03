@@ -1,0 +1,40 @@
+$red:#FF0000;
+$fontSize1: 16px;
+$fontSize2: 60px;
+$fontSize3: 12px;
+
+body {
+	background: $red;
+}
+
+#top {
+	#firstP {
+		@if(1 + 1 == 2) {
+			font-size: $fontSize1;
+		}
+	}
+	#secondP {
+		@if(1 + 1 != 2) {
+			font-size: $fontSize2;
+		}
+	}
+}
+
+@function calculate-font-size($number1, $number2) {
+	@return $number1 + $number2
+}
+
+#thirdP {
+	font-size: $fontSize3;
+}
+#fourthP {
+	@extend #thirdP;
+	color: blue;
+}
+#fifthP {
+	@extend #fourthP;
+	font-weight: bold;
+}
+#functionTest {
+	font-size: calculate-font-size(20px, 6px);
+}
